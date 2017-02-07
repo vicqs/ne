@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
    styleUrls: ['./app.component.css']
 })
 export class AppComponent { 
-   pageTitle: string = "Admnistración de Pacientes";
+   pageTitle: string = "Admnistración de Paciente";
 }

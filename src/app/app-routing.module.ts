@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './page-not-found.component';
 *
 * 3. Change the module's default route path from '' to 'pathname'
 *****************************************************************/
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'dashboard', },
   {
