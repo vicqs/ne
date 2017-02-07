@@ -3,6 +3,7 @@ var gulp = require("gulp");
 var del = require("del");
 var sourcemaps = require('gulp-sourcemaps');
 
+
 /**
  * Remove build directory.
  */
@@ -52,6 +53,7 @@ gulp.task("libs", () => {
         ], {cwd: "node_modules/**"}) /* Glob required here. */
         .pipe(gulp.dest("build/node_modules"));
 });
+
 /**
  * Build the project.
  */

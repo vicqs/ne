@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1>`,
+  moduleId: module.id,
+   selector: 'body',
+   templateUrl: './app.component.html',
+   styleUrls: ['./app.component.css']
 })
-export class AppComponent  { name = ' NE'; }
+export class AppComponent { 
+   pageTitle: string = "Admnistración de Pacientes";
+}
