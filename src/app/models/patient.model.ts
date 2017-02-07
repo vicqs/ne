@@ -7,7 +7,7 @@
 
 interface IPatient {
     //reales
-    patientId: 1,
+    patientId: number,
     patientCode: string,
     patientName: string,
     patientLastName: string,
@@ -33,17 +33,47 @@ interface IPatient {
     patientCellPhone: number,
     reference: string,
     referenceClinicName: string,
-   
+    price: number,
+    id: number,
+    name: string,
+    side: string,
+    description: string
 }
-
 
 export class Patient implements IPatient { // solo si usamos metodos
 
+    patientId: number;
+    patientCode: "string";
+    patientName: "string";
+    patientLastName: "string";
+    patientHeight: 0;
+    patientActualWeight: 0;
+    patientBirthdate: "string";
+    patientScholarship: 0;
+    patientCivilStatus: 0;
+    patientNationality: "string";
+    patientAge: 0;
+    patientGender: 0;
+    patientemail: "string";
+    authorized: 0;
+    responsibleName: "string";
+    patientStarRating: 0;
+    imageUrl: "string";
+    patientCountry: "string";
+    patientState: "string";
+    patientCity: "string";
+    patientAddress: "string";
+    patientZipCode: 0;
+    patientHomePhone: 0;
+    patientCellPhone: 0;
+    reference: "string";
+    referenceClinicName: "string";
+    price: 0;
+    id: 1;
+    name: "string";
+    side: "string";
+    description: "string";
 
-  id: number;
-  name: string;
-  side: string;
-  description: string;
 
     // constructor(public productId: number,
     //     public productName: string,

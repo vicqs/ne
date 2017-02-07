@@ -10,8 +10,8 @@ var patient_button_component_1 = require("./shared/patient-button/patient-button
 var sort_patients_pipe_1 = require("./shared/sort-patients.pipe");
 var patients_routing_module_1 = require("./patients-routing.module");
 var shared_module_1 = require("../shared/shared.module");
-var grid_list_1 = require("@angular2-material/grid-list");
-var core_2 = require("@angular2-material/core");
+// import { MdGridListModule } from '@angular2-material/grid-list';
+// import { MdCoreModule } from '@angular2-material/core';
 var PatientsModule = (function () {
     function PatientsModule() {
     }
@@ -19,7 +19,7 @@ var PatientsModule = (function () {
 }());
 PatientsModule = __decorate([
     core_1.NgModule({
-        imports: [patients_routing_module_1.PatientsRoutingModule, shared_module_1.SharedModule, core_2.MdCoreModule, grid_list_1.MdGridListModule],
+        imports: [patients_routing_module_1.PatientsRoutingModule, shared_module_1.SharedModule],
         declarations: [patient_button_component_1.patientButtonComponent, sort_patients_pipe_1.SortPatientsPipe, patients_routing_module_1.routedComponents]
     })
 ], PatientsModule);

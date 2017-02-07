@@ -48,8 +48,8 @@ gulp.task("libs", () => {
         'systemjs/dist/system-polyfills.js',
         'systemjs/dist/system.src.js',
         'angular-in-memory-web-api/**',
-        '@angular2-material/grid-list/**',
-        '@angular2-material/core/**',
+        // '@angular2-material/grid-list/**',
+        // '@angular2-material/core/**',
         'rxjs/**',
         'zone.js/dist/**',
         '@angular/**'
