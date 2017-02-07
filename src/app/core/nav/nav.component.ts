@@ -18,10 +18,10 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     this.menuItems = [
       { caption: 'Dashboard', link: ['/dashboard'] },
-      { caption: 'Patients', link: ['/patients'] },
-      { caption: 'Foods', link: ['/foods'] },
-      { caption: 'Admin', link: ['/admin'] },
-      { caption: 'Login', link: ['/login'] },
+      { caption: 'Pacientes', link: ['/patients'] },
+      { caption: 'Alimentos', link: ['/foods'] },
+      { caption: 'Perfil', link: ['/admin'] },
+      { caption: 'Inicio Sesión', link: ['/login'] },
     ];
   }
 
@@ -31,7 +31,7 @@ export class NavComponent implements OnInit {
   }
 
   resetDb() {
-    let msg = 'Are you sure you want to reset the database?';
+    let msg = '¿Está seguro de que desea restablecer la base de datos?';
     this.modalService.activate(msg).then(responseOK => {
       if (responseOK) {
         this.messageService.resetDb();

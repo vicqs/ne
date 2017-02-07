@@ -22,9 +22,24 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     canLoad: [AuthGuard],
   },
-  { path: 'dashboard', loadChildren: 'app/dashboard/dashboard.module#DashboardModule' },
-  { path: 'patients', loadChildren: 'app/patients/patients.module#PatientsModule' },
-  { path: 'foods', loadChildren: 'app/foods/foods.module#FoodsModule' },
+  {
+    path: 'dashboard',
+    loadChildren: 'app/dashboard/dashboard.module#DashboardModule'  
+  },
+  {
+    path: 'patients',
+    loadChildren: 'app/patients/patients.module#PatientsModule',
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    canLoad: [AuthGuard],
+  },
+  {
+    path: 'foods',
+    loadChildren: 'app/foods/foods.module#FoodsModule',
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    canLoad: [AuthGuard],
+  },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ];
 

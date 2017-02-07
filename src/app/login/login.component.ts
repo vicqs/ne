@@ -31,7 +31,7 @@ export class LoginComponent implements OnDestroy {
       .mergeMap(loginResult => this.route.queryParams)
       .map(qp => qp['redirectTo'])
       .subscribe(redirectTo => {
-        this.toastService.activate(`Successfully logged in`);
+        this.toastService.activate(`Iniciado con éxito`);
         if (this.userProfileService.isLoggedIn) {
           let url = redirectTo ? [redirectTo] : [ '/dashboard' ];
           this.router.navigate(url);
@@ -41,7 +41,7 @@ export class LoginComponent implements OnDestroy {
 
   logout() {
     this.loginService.logout();
-    this.toastService.activate(`Successfully logged out`);
+    this.toastService.activate(`Cerrado con éxito`);
   }
 
   ngOnDestroy() {

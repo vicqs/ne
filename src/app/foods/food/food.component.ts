@@ -29,7 +29,8 @@ export class FoodComponent implements OnDestroy, OnInit, CanComponentDeactivate 
   cancel(showToast = true) {
     this.editFood = this.entityService.clone(this.food);
     if (showToast) {
-      this.toastService.activate(`Cancelled changes to ${this.food.name}`);
+      this.toastService.activate(`Cambios cancelados en ${this.food.name}`);
+      this.gotoFoods();
     }
   }
 
@@ -40,14 +41,14 @@ export class FoodComponent implements OnDestroy, OnInit, CanComponentDeactivate 
   }
 
   delete() {
-    let msg = `Do you want to delete the ${this.food.name}?`;
+    let msg = `¿Quiere eliminar ${this.food.name}?`;
     this.modalService.activate(msg).then((responseOK) => {
       if (responseOK) {
         this.cancel(false);
         this.foodService.deleteFood(this.food)
           .subscribe(
           () => { // Success path
-            this.toastService.activate(`Deleted ${this.food.name}`);
+            this.toastService.activate(`Borrado ${this.food.name}`);
             this.gotoFoods();
           },
           (err) => this.handleServiceError('Delete', err), // Failure path
@@ -93,14 +94,16 @@ export class FoodComponent implements OnDestroy, OnInit, CanComponentDeactivate 
     if (food.id == null) {
       this.foodService.addFood(food).subscribe(s => {
         this.setEditFood(s);
-        this.toastService.activate(`Successfully added ${s.name}`);
+        this.toastService.activate(`Agregado ${s.name} exitosamente`);
         this.gotoFoods();
       });
       return;
     }
     this.foodService.updateFood(this.food)
-      .subscribe(() => this.toastService.activate(
-        `Successfully saved ${this.food.name}`));
+      .subscribe(() => {
+          this.toastService.activate(`Guardado ${this.food.name} exitosamente`);
+          this.gotoFoods();
+        });
   }
 
   private getFood() {
@@ -127,7 +130,7 @@ export class FoodComponent implements OnDestroy, OnInit, CanComponentDeactivate 
   private isDirty() {
     return this.entityService.propertiesDiffer(this.food, this.editFood);
   }
-
+  
   private setEditFood(food: Food) {
     if (food) {
       this.food = food;

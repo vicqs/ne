@@ -15,16 +15,16 @@ gulp.task('clean', function (cb) {
  * Copy all resources that are not TypeScript files into build directory.
  */
 gulp.task("resources", ["server", "app", "assets"], function () {
-return gulp.src(["src/**/*", "!**/*.ts","!src/server","!src/server/**"])
+    return gulp.src(["src/**/*", "!**/*.ts", "!src/server", "!src/server/**"])
         .pipe(gulp.dest("build"));
 });
 /* copy the app core files to the build folder */
-gulp.task("app", ['index'], function(){
+gulp.task("app", ['index'], function () {
     return gulp.src(["app/**", "!app/**/*.ts"])
         .pipe(gulp.dest("build/app"));
 });
 /* get the index file to the root of the build */
-gulp.task("index", function(){
+gulp.task("index", function () {
     return gulp.src(["index.html"])
         .pipe(gulp.dest("build"));
 });
@@ -34,7 +34,7 @@ gulp.task("server", function () {
         .pipe(gulp.dest("build"));
 });
 /* styles and other assets */
-gulp.task("assets", function(){
+gulp.task("assets", function () {
     return gulp.src(["styles.css"])
         .pipe(gulp.dest("build"));
 });
@@ -44,13 +44,16 @@ gulp.task("assets", function(){
 
 gulp.task("libs", () => {
     return gulp.src([
-            'core-js/client/shim.min.js',
-            'systemjs/dist/system-polyfills.js',
-            'systemjs/dist/system.src.js',
-            'rxjs/**',
-            'zone.js/dist/**',
-            '@angular/**'
-        ], {cwd: "node_modules/**"}) /* Glob required here. */
+        'core-js/client/shim.min.js',
+        'systemjs/dist/system-polyfills.js',
+        'systemjs/dist/system.src.js',
+        'angular-in-memory-web-api/**',
+        '@angular2-material/grid-list/**',
+        '@angular2-material/core/**',
+        'rxjs/**',
+        'zone.js/dist/**',
+        '@angular/**'
+    ], { cwd: "node_modules/**" }) /* Glob required here. */
         .pipe(gulp.dest("build/node_modules"));
 });
 

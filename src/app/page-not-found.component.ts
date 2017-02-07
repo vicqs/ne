@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   selector: 'ne-404',
   template: `
     <article class="template animated slideInRight">
-      <h4>Inconceivable!</h4>
-      <div>I do not think this page is where you think it is.</div>
+      <h4>Inconcebible!</h4>
+      <div>No creo que esta página es lo que crees que es.</div>
     </article>
   `
 })

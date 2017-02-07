@@ -29,7 +29,8 @@ export class PatientComponent implements OnDestroy, OnInit, CanComponentDeactiva
   cancel(showToast = true) {
     this.editpatient = this.entityService.clone(this.patient);
     if (showToast) {
-      this.toastService.activate(`Cancelled changes to ${this.patient.name}`);
+      this.toastService.activate(`Cambios cancelados en ${this.patient.name}`);
+      this.gotoPatients();
     }
   }
 
@@ -40,13 +41,13 @@ export class PatientComponent implements OnDestroy, OnInit, CanComponentDeactiva
   }
 
   delete() {
-    let msg = `Do you want to delete ${this.patient.name}?`;
+    let msg = `¿Quiere eliminar ${this.patient.name}?`;
     this.modalService.activate(msg).then(responseOK => {
       if (responseOK) {
         this.cancel(false);
         this.patientService.deletepatient(this.patient)
           .subscribe(() => {
-            this.toastService.activate(`Deleted ${this.patient.name}`);
+            this.toastService.activate(`Borrado ${this.patient.name}`);
             this.gotoPatients();
           },
           (err) => this.handleServiceError('Delete', err), // Failure path
@@ -85,13 +86,17 @@ export class PatientComponent implements OnDestroy, OnInit, CanComponentDeactiva
       this.patientService.addpatient(patient)
         .subscribe(s => {
           this.setEditpatient(s);
-          this.toastService.activate(`Successfully added ${s.name}`);
+          this.toastService.activate(`Agregado ${s.name} exitosamente`);
           this.gotoPatients();
         });
       return;
     }
     this.patientService.updatepatient(patient)
-      .subscribe(() => this.toastService.activate(`Successfully saved ${patient.name}`));
+      .subscribe(() =>
+      {
+        this.toastService.activate(`Guardado ${patient.name} exitosamente`);
+        this.gotoPatients();//agregado
+      });
   }
 
   private getpatient() {

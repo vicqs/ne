@@ -32,7 +32,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
         return Observable.of([]);
       });
   }
-
   gotoDetail(patient: Patient) {
     let link = ['/patients', patient.id];
     this.router.navigate(link);

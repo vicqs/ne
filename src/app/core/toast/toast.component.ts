@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs/Subscription'
 export class ToastComponent implements OnDestroy, OnInit {
   private defaults = {
     title: '',
-    message: 'May the Force be with You'
+    message: 'Texto por Default'
   };
   private toastElement: any;
   private toastSubscription: Subscription;

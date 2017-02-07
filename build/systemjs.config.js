@@ -24,17 +24,19 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
       // other libraries
-      'rxjs':                      'npm:rxjs',
+      '@angular2-material/grid-list': 'npm:@angular2-material/grid-list/grid-list.umd.js',
+      '@angular2-material/core': 'npm:@angular2-material/core/core.umd.js',
+
+      'rxjs': 'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
-      app: {
-        defaultExtension: 'js'
-      },
-      rxjs: {
-        defaultExtension: 'js'
-      }
+      'app/core': { main: 'index' }, // victor
+      'app/models': { main: 'index' }, // victor
+      'app': { main: './main.js', defaultExtension: 'js' },
+      'api': { defaultExtension: 'js' },
+      'rxjs': { defaultExtension: 'js' },
     }
   });
 })(this);
